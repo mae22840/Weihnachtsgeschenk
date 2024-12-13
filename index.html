@@ -1,37 +1,206 @@
-  /* Responsive Design */
-  @media (max-width: 768px) {
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weihnachtsgeschenk</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Zentriert den Inhalt vertikal */
+      overflow: auto; /* Scrollbar bei Bedarf */
+    }
     .container {
-      padding: 15px;
+      margin: 50px auto;
+      max-width: 600px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hidden {
+      display: none;
     }
     .gift-box {
-      font-size: 80px;
+      font-size: 100px;
+      cursor: pointer;
+      animation: initial-pulse 1.5s infinite;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .gift-box:hover {
+      animation: hover-pulse 0.7s infinite;
+    }
+    @keyframes initial-pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+    @keyframes hover-pulse {
+      0%, 100% {
+        transform: scale(1.05);
+      }
+      50% {
+        transform: scale(1.1);
+      }
     }
     .reveal-content {
-      font-size: 14px;
-    }
-    .button {
-      font-size: 13px;
-    }
-    .gif-container {
-      max-width: 300px; /* Reduziert die maximale Breite des GIFs */
-      transform: scale(0.8); /* Verkleinert das GIF */
-    }
-  }
-  @media (max-width: 480px) {
-    .container {
-      padding: 10px;
-    }
-    .gift-box {
-      font-size: 60px;
+      margin-top: 20px;
+      font-size: 18px;
+      opacity: 0; /* Anfangszustand ist unsichtbar */
+      transition: opacity 1s ease-in; /* Nur für die Opazität */
     }
     .gif-container {
-      max-width: 250px; /* Noch kleiner für sehr kleine Bildschirme */
-      transform: scale(0.75); /* Weitere Skalierung */
+      width: 100%;
+      max-width: 400px; /* Maximale Breite des Containers */
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      transform: scale(0.85);
+      opacity: 0; /* Anfangszustand ist unsichtbar */
+      transition: opacity 1s ease-in; /* Sanfte Einblendung */
     }
-    .reveal-content {
-      font-size: 12px;
+    img {
+      width: 100%;
+      height: auto;
+      display: block; /* Verhindert unnötige Leerzeichen unter dem Bild */
     }
     .button {
-      font-size: 12px;
+      background-color: #3a5e8e;
+      color: white;
+      padding: 15px 15px;
+      font-size: 16px;
+      line-height: 1.5;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background-color 0.2s;
+      opacity: 0; /* Anfangszustand unsichtbar */
+      visibility: hidden; /* Der Button ist anfangs unsichtbar */
     }
-  }
+    .button:hover {
+      background-color: #4c79a0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      .gift-box {
+        font-size: 80px;
+      }
+      .reveal-content {
+        font-size: 14px;
+      }
+      .button {
+        font-size: 13px;
+      }
+      .gif-container {
+        max-width: 300px; /* Reduziert die maximale Breite des GIFs */
+        transform: scale(0.8); /* Verkleinert das GIF */
+      }
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+      .gift-box {
+        font-size: 60px;
+      }
+      .gif-container {
+        max-width: 250px; /* Noch kleiner für sehr kleine Bildschirme */
+        transform: scale(0.75); /* Weitere Skalierung */
+      }
+      .reveal-content {
+        font-size: 12px;
+      }
+      .button {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Merry Xmas, Pa! 🎄</h1>
+    <p id="introText">Ich war fleißig und dieses Mal bekommst du dein Geschenk auf eine andere Art und Weise. Natürlich ohne ChatGPT...😳 </p>
+    <div class="gift-box" id="giftBox">🎁</div>
+    <div id="giftContent" class="hidden">
+      <!-- Hier das GIF als Bild -->
+      <div class="gif-container">
+        <img src="https://media.giphy.com/media/IYG3wulSTkS2kwat60/giphy.gif" alt="Paddle Geschenk">
+      </div>
+      <p class="reveal-content" id="messageText">Statt wie früher zum Schwimmen zu gehen &#40pain 🫠&#41, <br> schenke ich dir ein gemeinsames Padel-Spiel!<br>
+        <br><strong> 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾</strong> <br>  <br> <strong>Datum:</strong> Januar - Wochenende?<br>
+        <strong>Ort:</strong> MUC 🏓 </p>
+    </div>
+    <!-- Button zum Geschenk erneut anzeigen -->
+    <button id="resetButton" class="button">Geschenk nochmal öffnen, <br> weil's so schön war</button>
+  </div>
+
+  <script>
+    const giftBox = document.getElementById('giftBox');
+    const giftContent = document.getElementById('giftContent');
+    const messageText = document.getElementById('messageText');
+    const introText = document.getElementById('introText');
+    const gifContainer = document.querySelector('.gif-container');
+    const resetButton = document.getElementById('resetButton');
+
+    // Klicken auf das Geschenk-Emoji
+    giftBox.addEventListener('click', () => {
+      introText.style.display = 'none'; // Der Einleitungstext verschwindet
+      giftBox.style.display = 'none'; // Das Geschenk-Emoji verschwindet
+      giftContent.classList.remove('hidden'); // Das GIF wird angezeigt
+
+      // GIF einblenden
+      setTimeout(() => {
+        gifContainer.style.opacity = 1; // GIF wird eingeblendet
+      }, 500); // Verzögerung von 0,5 Sekunden
+
+      // Text einblenden
+      setTimeout(() => {
+        messageText.style.opacity = 1; // Der Text wird eingeblendet nach einer Verzögerung
+      }, 1500); // Verzögerung von 1,5 Sekunden für den Text
+
+      // Zeige den Button an, um das Geschenk nochmal zu öffnen
+      setTimeout(() => {
+        resetButton.style.visibility = 'visible'; // Button wird sichtbar
+        resetButton.style.opacity = 1; // Button wird eingeblendet
+      }, 3200); // Button erscheint nach 2 Sekunden
+    });
+
+    // Button klicken, um zur ersten Seite zurückzukehren
+    resetButton.addEventListener('click', () => {
+      introText.style.display = 'block'; // Der Einleitungstext erscheint wieder
+      giftBox.style.display = 'inline-block'; // Das Geschenk-Emoji erscheint wieder
+      giftContent.classList.add('hidden'); // Das GIF und der Text verschwinden
+
+      // Setze die Opazität zurück
+      gifContainer.style.opacity = 0; // GIF ist unsichtbar
+      messageText.style.opacity = 0; // Text ist unsichtbar
+
+      // Button sofort ausblenden (ohne Transition)
+      resetButton.style.visibility = 'hidden'; // Der Button verschwindet sofort
+      resetButton.style.opacity = 0; // Der Button wird sofort unsichtbar
+    });
+  </script>
+</body>
+</html>
