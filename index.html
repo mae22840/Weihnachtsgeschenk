@@ -15,7 +15,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh; /* Zentriert den Inhalt vertikal */
-      overflow: auto; /* Scrollbar bei Bedarf */
+      overflow: hidden;
     }
     .container {
       margin: 50px auto;
@@ -69,7 +69,7 @@
     .gif-container {
       width: 100%;
       max-width: 400px; /* Maximale Breite des Containers */
-      margin: 5px auto;
+      margin: 0 auto;
       position: relative;
       overflow: hidden;
       transform: scale(0.85);
@@ -82,7 +82,7 @@
       display: block; /* Verhindert unnötige Leerzeichen unter dem Bild */
     }
     .button {
-      background-color: #3a5e8e;
+      background-color: #3a5e8e; /* Grüner Hintergrund */
       color: white;
       padding: 15px 15px;
       font-size: 16px;
@@ -99,45 +99,17 @@
       background-color: #4c79a0;
     }
 
-    /* Responsive Design */
+    /* Medienabfrage für kleinere Bildschirme (Mobile) */
     @media (max-width: 768px) {
-      .container {
-        padding: 15px;
-      }
       .gift-box {
-        font-size: 250px;
-      }
-      .reveal-content {
-        font-size: 14px;
-      }
-      .button {
-        font-size: 13px;
+        font-size: 150px; /* Größeres Geschenk auf mobilen Geräten */
       }
       .gif-container {
-        max-width: 300px; /* Reduziert die maximale Breite des GIFs */
-        transform: scale(0.8); /* Verkleinert das GIF */
+        transform: scale(0.75); /* Verkleinert das GIF etwas */
       }
-    }
-    @media (max-width: 480px) {
       .container {
-        padding: 10px;
-      }
-      .gift-box {
-        font-size: 60px;
-      }
-      .gif-container {
-        max-width: 250px; /* Noch kleiner für sehr kleine Bildschirme */
-        transform: scale(0.75); /* Weitere Skalierung */
-        margin-top: -30px;
-        margin-bottom: -30px;
-      }
-      .reveal-content {
-        font-size: 12px;
-      }
-      .button {
-        font-size: 12px;
-        margin-top: 10px;
-        margin-bottom: 30px;
+        margin: 20px; /* Reduziert den Abstand */
+        padding: 10px; /* Weniger Innenabstand auf kleineren Bildschirmen */
       }
     }
   </style>
@@ -156,6 +128,7 @@
         <br><strong> 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾 🎾</strong> <br>  <br> <strong>Datum:</strong> Januar - Wochenende?<br>
         <strong>Ort:</strong> MUC 🏓 </p>
     </div>
+
     <!-- Button zum Geschenk erneut anzeigen -->
     <button id="resetButton" class="button">Geschenk nochmal öffnen, <br> weil's so schön war</button>
   </div>
